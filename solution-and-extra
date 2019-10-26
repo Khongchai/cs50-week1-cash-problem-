@@ -1,0 +1,134 @@
+//Shows the amount of coins and of each type of coin.
+#include <stdio.h>
+#include <math.h>
+
+void check_with_quarter (int*amount_in_cents, int*total_coinP, int*quarter_usedP);
+void check_with_dime    (int*amount_in_cents, int*total_coinP, int*dime_usedP);
+void check_with_nickel  (int*amount_in_cents, int*total_coinP, int*nickel_usedP);
+void check_with_penny   (int*amount_in_cents, int*total_coinP, int*penny_usedP);
+
+int main ()
+ {
+    int quarter = 25;
+    int dime = 10;
+    int nickel = 5;
+    int penny = 1;
+    //
+    int total_coin = 0;
+    int*total_coinP = &total_coin;
+    //
+    int quarter_used = 0;
+    int dime_used = 0;
+    int nickel_used = 0;
+    int penny_used = 0;
+    //
+    int*quarter_usedP = &quarter_used;
+    int*dime_usedP = &dime_used;
+    int*nickel_usedP = &nickel_used;
+    int*penny_usedP = & penny_used;
+    //
+    float amount_owed;
+    do
+    {
+        printf("enter change: ");
+        scanf("%f", &amount_owed);
+    }
+    while (amount_owed < 0);
+    
+
+    int amount_owed_in_cents  = round(amount_owed*100);
+    int*amount_in_cents = &amount_owed_in_cents;
+    printf("\ntotal: %d  cents", amount_owed_in_cents);
+
+    check_with_quarter(&amount_owed_in_cents, &total_coin, &quarter_used);
+    check_with_dime(&amount_owed_in_cents, &total_coin, &dime_used);
+    check_with_nickel(&amount_owed_in_cents, &total_coin, &nickel_used);
+    check_with_penny(&amount_owed_in_cents, &total_coin, &penny_used);
+
+    printf("\nAmount of coins: %d", total_coin);
+    printf("\nQuarter used = %d", quarter_used);
+    printf("\nDime used = %d", dime_used);
+    printf("\nNickel used = %d", nickel_used);
+    printf("\nPenny used = %d\n", penny_used);
+}
+
+void check_with_quarter (int*amount_in_cents, int*total_coinP, int*quarter_usedP)
+{
+    if (*amount_in_cents > 25)
+    {
+
+        do
+        {
+           *amount_in_cents -=25;
+           *total_coinP+=1;
+           *quarter_usedP+=1;
+        }
+        while (*amount_in_cents > 24);
+
+    }
+    else {}
+    return;
+
+}
+
+void check_with_dime  (int*amount_in_cents, int*total_coinP, int*dime_usedP)
+{
+
+     if (*amount_in_cents > 10)
+    {
+
+        do
+        {
+           *amount_in_cents -=10;
+           *total_coinP+=1;
+           *dime_usedP+=1;
+        }
+        while (*amount_in_cents > 9);
+
+    }
+    else {}
+    return;
+
+}
+
+
+void check_with_nickel (int*amount_in_cents, int*total_coinP, int*nickel_usedP)
+{
+
+     if (*amount_in_cents > 5)
+    {
+
+        do
+        {
+           *amount_in_cents -=5;
+           *total_coinP+=1;
+           *nickel_usedP+=1;
+        }
+        while (*amount_in_cents > 4);
+
+    }
+    else {}
+    return;
+
+}
+
+void check_with_penny (int*amount_in_cents, int*total_coinP, int*penny_usedP)
+{
+
+     if (*amount_in_cents > 1)
+    {
+
+        do
+        {
+           *amount_in_cents -=1;
+           *total_coinP+=1;
+           *penny_usedP+=1;
+        }
+        while (*amount_in_cents > 0);
+
+    }
+    else {}
+    return;
+
+}
+
