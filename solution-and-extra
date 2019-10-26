@@ -34,7 +34,7 @@ int main ()
         scanf("%f", &amount_owed);
     }
     while (amount_owed < 0);
-    
+
 
     int amount_owed_in_cents  = round(amount_owed*100);
     int*amount_in_cents = &amount_owed_in_cents;
@@ -54,7 +54,7 @@ int main ()
 
 void check_with_quarter (int*amount_in_cents, int*total_coinP, int*quarter_usedP)
 {
-    if (*amount_in_cents > 25)
+    if (*amount_in_cents >= 25)
     {
 
         do
@@ -74,7 +74,7 @@ void check_with_quarter (int*amount_in_cents, int*total_coinP, int*quarter_usedP
 void check_with_dime  (int*amount_in_cents, int*total_coinP, int*dime_usedP)
 {
 
-     if (*amount_in_cents > 10)
+     if (*amount_in_cents >= 10)
     {
 
         do
@@ -95,7 +95,7 @@ void check_with_dime  (int*amount_in_cents, int*total_coinP, int*dime_usedP)
 void check_with_nickel (int*amount_in_cents, int*total_coinP, int*nickel_usedP)
 {
 
-     if (*amount_in_cents > 5)
+     if (*amount_in_cents >= 5)
     {
 
         do
@@ -115,7 +115,7 @@ void check_with_nickel (int*amount_in_cents, int*total_coinP, int*nickel_usedP)
 void check_with_penny (int*amount_in_cents, int*total_coinP, int*penny_usedP)
 {
 
-     if (*amount_in_cents > 1)
+     if (*amount_in_cents >= 1)
     {
 
         do
